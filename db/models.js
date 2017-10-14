@@ -26,7 +26,7 @@ const BlockChain = db.define('blockchain', {
     hash: Sequelize.DataTypes.STRING(1234)
 });
 
-db.sync({force: true}).then(() => {
+db.sync({force: false}).then(() => {
     console.log('Database configured')
 });
 
