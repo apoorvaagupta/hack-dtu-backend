@@ -27,6 +27,7 @@ module.exports = {
             hash: BlockChain.getLatestBlock().hash
         }).then(block => {
             console.log(JSON.stringify(BlockChain.chain, null, 4));
+            console.log("returning")
             return {success: true}
         }).catch(err => {
             console.log(err);

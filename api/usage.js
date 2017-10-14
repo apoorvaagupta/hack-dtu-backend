@@ -7,20 +7,21 @@ router.post('/', (req, res) => {
 
     db.models.Usage.create({
         amount: +req.body.amount,
-        location: req.body.location,
-        time: req.body.date,
+        location: req.body.place,
+        // time: req.body.time,
         usernfc: req.body.usernfc,
         username: req.body.username,
-        usercontact: req.body.username
+        usercontact: req.body.usercontact
     }).then((usage) => {
         let result = BlockchainHandler.addTransaction({
             amount: +req.body.amount,
-            location: req.body.location,
-            time: req.body.date,
+            location: req.body.place,
+            // time: req.body.time,
             usernfc: req.body.usernfc,
             username: req.body.username,
-            usercontact: req.body.username
+            usercontact: req.body.usercontact
         });
+        console.log(result.success);
         res.send({success: result.success, data: usage.get()})
     }).catch((err) => {
         console.log('Internal Server Error');
